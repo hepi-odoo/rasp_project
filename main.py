@@ -1,4 +1,7 @@
+
 import sys
+import threading
+
 
 def fibo(n):
     i = 0
@@ -11,8 +14,17 @@ def fibo(n):
         # print(current)
     print(current)
 
+
 if __name__=="__main__":
     n = int(sys.argv[1])
     # print(arg)
-    fibo(n)
+    # fibo(n)
+    th = []
+    for i in range(4):
+        th.append(threading.Thread(target=fibo, args=(n,)))
+    for i in range(4):
+        th[i].start()
+
+    for i in range(4):
+        th[i].join()
 
