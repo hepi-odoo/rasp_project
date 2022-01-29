@@ -8,8 +8,8 @@ def fibo(n):
         temp = current
         current += previous
         previous = temp
-        print(current)
-
+        # print(current)
+    print(current)
 
 if __name__=="__main__":
     n = int(sys.argv[1])
